@@ -1,11 +1,17 @@
-export default function Carrito({carritoCompra}){
+export default function Carrito({carritoCompra, onEliminar, onVaciar}){
     if (carritoCompra.length > 0) {
         return (
             <>
             <ul>
                 {carritoCompra.map(producto => 
-                    <li key={producto.id}>
-                        {producto.nombre} - Cantidad: {producto.cantidad}
+                    <li key={producto.id} className="">
+                        <span>{producto.nombre} - Cantidad: {producto.cantidad}</span>
+                        <button onClick={e => {
+                            e.stopPropagation();
+                            onEliminar(producto.id)
+                        }} className="px-4 mt-4 bg-red-500 text-white rounded hover:bg-red-700">
+                            Eliminar
+                        </button>
                     </li>
                 )}
             </ul>
@@ -14,6 +20,7 @@ export default function Carrito({carritoCompra}){
                     return acumulador+(producto.precio*producto.cantidad)},0)
                 }
             </p>
+            <button onClick={onVaciar} className="px-4 mt-4 bg-red-500 text-white rounded hover:bg-red-700">Vaciar Carrito</button>
             </>
         )
     }

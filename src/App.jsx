@@ -27,6 +27,15 @@ function App() {
     }
   }
 
+  function eliminarDelCarrito(id) {
+    const nuevoCarrito = carrito.filter(producto=> producto.id !==id);
+    setCarrito(nuevoCarrito);
+  }
+  
+  function vaciarCarrito() {
+    setCarrito([]);
+  }
+
   const listProductos = [{
     id:1,
     name:"Natilla",
@@ -71,6 +80,8 @@ function App() {
       <div>
           <Carrito 
             carritoCompra={carrito}
+            onEliminar={eliminarDelCarrito}
+            onVaciar={vaciarCarrito}
           />
         </div>
     </>
