@@ -33,7 +33,7 @@ function App() {
         setLoading(false);
       }
     }
-    Peticion();
+    Peticion(); // esto es para llamar a la función asincrona
 
     return () => {
       ignore = true;
@@ -66,8 +66,13 @@ function App() {
   function vaciarCarrito() {
     setCarrito([]);
   }
-  
-  
+
+
+
+  let productosFiltrados = productos.filter(producto => {
+    return producto.title.toLowerCase().includes(busqueda.toLowerCase())
+  });
+
   return (
     <>
       
@@ -77,8 +82,10 @@ function App() {
       />
       {loading && <p>Cargando...</p>}
       {error && <p>{error}</p>}
+      {(productosFiltrados.length === 0 && busqueda !== "") ?  <p>No se encontraron productos</p>: ""}
+      
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center text-white">
-        {!loading && error === null && productos.map(producto => 
+        {!loading && error === null && productosFiltrados.map(producto => 
           <ProductCard
             key={producto.id}
             id={producto.id}
