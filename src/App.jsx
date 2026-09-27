@@ -66,34 +66,8 @@ function App() {
   function vaciarCarrito() {
     setCarrito([]);
   }
-  /*
-  const listProductos = [{
-    id:1,
-    name:"Natilla",
-    imgURL:"",
-    descripcion:"Es un plato tipico de Colombia",
-    precio:10200,
-  },{
-    id:2,
-    name:"Platanos",
-    imgURL:"",
-    descripcion:"Es una fruta cultivada en la zona de Urabá y otras partes de Colombia",
-    precio:20000,
-  },{
-    id:3,
-    name:"Banano",
-    imgURL:"",
-    descripcion:"Es una fruta cultivada en la zona de Urabá y otras partes de Colombia",
-    precio:30000,
-  },{
-    id:4,
-    name:"Arroz",
-    imgURL:"",
-    descripcion:"Producto básico de la canasta familiar de Colombia",
-    precio:3000,
-  }];
-  */
-  console.log(busqueda);
+  
+  
   return (
     <>
       

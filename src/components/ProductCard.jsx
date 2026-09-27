@@ -1,13 +1,12 @@
 export default function ProductCard(props) {
     
-    const TEXTO_ALTERNATIVO = "Imagen de " + props.nombre;
     const clickAqui = () => {
         console.log('Agregado', props.nombre);
         props.onAdd({ id: props.id, nombre:props.nombre, imgURL:props.imgURL, descripcion:props.descripcion, precio:props.precio});
     }
     return (
         <div className="border rounded-lg shadow-lg p-4 flex flex-col items-center">
-            <img src={props.imgURL} alt={TEXTO_ALTERNATIVO} className="w-full h-48 object-cover rounded-md"/>
+            <img src={props.imgURL} alt={"Imagen de " + props.nombre} className="w-full h-48 object-cover rounded-md"/>
             <h1 className="text-xl font-bold mt-2">{props.nombre}</h1>
             <p className="text-lg mt-2">Descripción: {props.descripcion}</p>
             <p className="text-lg text-green-600">Precio: {props.precio}</p>
