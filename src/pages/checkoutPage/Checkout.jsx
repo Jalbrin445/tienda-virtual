@@ -1,14 +1,19 @@
 import { useNavigate, Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 export default function Checkout({carrito, vaciarCarrito}) {
     const navigate = useNavigate();
     function handleCheckout() {
-        alert("Compra exitosa");
+        toast.success('Compra realizada con éxito', {
+            duration: 2000,
+        });
         vaciarCarrito();
         navigate("/", {replace:true});
     }
     function handleNotCheckout() {
-        alert("Ha rechazado su compra");
+        toast.success("Ha rechazado su compra", {
+            duration: 2000,
+        });
         navigate("/carrito");
     }
     

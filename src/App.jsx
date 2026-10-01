@@ -1,9 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home.jsx';
-import CarritoPage from './pages/CarritoPage.jsx';
-import ProductoDetalle from './pages/ProductoDetalle.jsx';
-import Checkout from './pages/Checkout.jsx';
+import Home from './pages/homePage/Home.jsx';
+import CarritoPage from './pages/carritoPage/CarritoPage.jsx';
+import ProductoDetalle from './pages/productoDetalle/ProductoDetalle.jsx';
+import Checkout from './pages/checkoutPage/Checkout.jsx';
 import { useState, useEffect } from 'react';
+import { Toaster } from 'react-hot-toast';
+import obtenerProductos from './services/productService.js';
 import './App.css'
 
 function App() {
@@ -17,10 +19,9 @@ function App() {
     let ignore = false;
     async function Peticion() {
       try {
-        const response = await fetch("https://dummyjson.com/products"); // fetch a la API que contiene los productos
-        const responseJson = await response.json();
+        const response = await obtenerProductos(); // fetch a la API que contiene los productos
         if (!ignore) {
-          setProductos(responseJson.products);
+          setProductos(response);
         }
       } catch (e) {
         console.error(e);
@@ -71,7 +72,9 @@ function App() {
         <Route path="/carrito" element={<CarritoPage onVaciar={vaciarCarrito} carritoCompra={carrito} onEliminar={eliminarDelCarrito}/>}/>
         <Route path="/producto/:id" element={<ProductoDetalle productos={productos}/>}/>
         <Route path="/checkout" element={<Checkout carrito={carrito} vaciarCarrito={vaciarCarrito}/>}/>
+        
       </Routes>
+      <Toaster/>
     </>
   )
 }

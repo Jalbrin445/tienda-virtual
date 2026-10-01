@@ -1,10 +1,13 @@
 import {Link} from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 export default function ProductCard(props) {
     
     const clickAqui = () => {
-        console.log('Agregado', props.nombre);
         props.onAdd({ id: props.id, nombre:props.nombre, imgURL:props.imgURL, descripcion:props.descripcion, precio:props.precio});
+        toast.success(`${props.nombre} agregado al carrito`, {
+            duration: 2000,
+        });
     }
     return (
         <div className="border rounded-lg shadow-lg p-4 flex flex-col items-center">

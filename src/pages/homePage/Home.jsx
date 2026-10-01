@@ -2,11 +2,11 @@ import { useState } from 'react';
 //import heroImg from './assets/hero.png'
 //import reactLogo from './assets/react.svg'
 //import viteLogo from './assets/vite.svg'
-import ProductCard from '../components/ProductCard.jsx';
+import ProductCard from '../../components/cartaproducto/ProductCard.jsx';
 //import Carrito from '../components/Carrito.jsx';
-import SearchBar from '../components/SearchBar.jsx';
+import SearchBar from '../../components/navBar/SearchBar.jsx';
 import {Link} from 'react-router-dom';
-import '../App.css';
+import '../../App.css';
 
 function Home({ carrito, agregarCarrito, productos, loading, error}) {
   // Estados para compartir entre renderizaciones
