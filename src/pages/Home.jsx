@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 //import heroImg from './assets/hero.png'
 //import reactLogo from './assets/react.svg'
 //import viteLogo from './assets/vite.svg'
@@ -8,39 +8,10 @@ import SearchBar from '../components/SearchBar.jsx';
 import {Link} from 'react-router-dom';
 import '../App.css';
 
-function Home({ carrito, agregarCarrito}) {
+function Home({ carrito, agregarCarrito, productos, loading, error}) {
   // Estados para compartir entre renderizaciones
-  const [productos, setProductos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  
   const [busqueda, setBusqueda] = useState("");
-
-  useEffect(()=> {
-    // Efecto para hacer peticiones
-    let ignore = false;
-    async function Peticion() {
-      try {
-        const response = await fetch("https://dummyjson.com/products"); // fetch a la API que contiene los productos
-        const responseJson = await response.json();
-        if (!ignore) {
-          setProductos(responseJson.products);
-        }
-      } catch (e) {
-        console.error(e);
-        setError("Ocurrio un error inesperado");
-      } finally {
-        setLoading(false);
-      }
-    }
-    Peticion(); // esto es para llamar a la función asincrona
-
-    return () => {
-      ignore = true;
-    };
-  }, []);
-  
-  
-
 
   let productosFiltrados = productos.filter(producto => {
     return producto.title.toLowerCase().includes(busqueda.toLowerCase())

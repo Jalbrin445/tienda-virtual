@@ -1,11 +1,39 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import CarritoPage from './pages/CarritoPage.jsx';
-import { useState } from 'react';
+import ProductoDetalle from './pages/ProductoDetalle.jsx';
+import { useState, useEffect } from 'react';
 import './App.css'
 
 function App() {
   const [carrito, setCarrito] = useState([]);
+  const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(()=> {
+    // Efecto para hacer peticiones
+    let ignore = false;
+    async function Peticion() {
+      try {
+        const response = await fetch("https://dummyjson.com/products"); // fetch a la API que contiene los productos
+        const responseJson = await response.json();
+        if (!ignore) {
+          setProductos(responseJson.products);
+        }
+      } catch (e) {
+        console.error(e);
+        setError("Ocurrio un error inesperado");
+      } finally {
+        setLoading(false);
+      }
+    }
+    Peticion(); // esto es para llamar a la función asincrona
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   function agregarCarrito(producto) {
     // función para agregar productos al carrito comprobando si el producto está en el producto
@@ -38,8 +66,9 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home carrito={carrito} agregarCarrito={agregarCarrito}/>}/>
+        <Route path="/" element={<Home carrito={carrito} agregarCarrito={agregarCarrito} productos={productos} loading={loading} error={error}/>}/>
         <Route path="/carrito" element={<CarritoPage onVaciar={vaciarCarrito} carritoCompra={carrito} onEliminar={eliminarDelCarrito}/>}/>
+        <Route path="/producto/:id" element={<ProductoDetalle productos={productos}/>}/>
       </Routes>
     </>
   )
