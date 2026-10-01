@@ -5,7 +5,7 @@ export default function SearchBar({ busqueda, setBusqueda}) {
                 value={busqueda}
                 onChange={(e)=> setBusqueda(e.target.value)}
                 placeholder="Buscar productos..."
-                className="border border-gray-800 rounded-lg p-2 mb-4 w-full text-white"
+                className="border border-gray-800 rounded-lg p-2 mb-4 w-full text-black"
             />
         </>
     )

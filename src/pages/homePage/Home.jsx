@@ -28,7 +28,7 @@ function Home({ carrito, agregarCarrito, productos, loading, error}) {
       {error && <p>{error}</p>}
       {(productosFiltrados.length === 0 && busqueda !== "") ?  <p>No se encontraron productos</p>: ""}
       
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center text-white">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center text-black">
         {!loading && error === null && productosFiltrados.map(producto => 
           <ProductCard
             key={producto.id}

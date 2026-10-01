@@ -6,7 +6,8 @@ import Checkout from './pages/checkoutPage/Checkout.jsx';
 import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import obtenerProductos from './services/productService.js';
-import './App.css'
+import NavBar from './components/navBar/NavBar.jsx';
+import './App.css';
 
 function App() {
   const [carrito, setCarrito] = useState([]);
@@ -67,6 +68,7 @@ function App() {
 
   return (
     <>
+      <NavBar cantidadProductos={carrito.length}></NavBar>
       <Routes>
         <Route path="/" element={<Home carrito={carrito} agregarCarrito={agregarCarrito} productos={productos} loading={loading} error={error}/>}/>
         <Route path="/carrito" element={<CarritoPage onVaciar={vaciarCarrito} carritoCompra={carrito} onEliminar={eliminarDelCarrito}/>}/>
