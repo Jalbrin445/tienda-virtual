@@ -1,7 +1,10 @@
+import { Link } from 'react-router-dom';
+
 export default function Carrito({carritoCompra, onEliminar, onVaciar}){
     if (carritoCompra.length > 0) {
         return (
             <>
+            <Link to="/checkout">Pagar carrito</Link>
             <ul>
                 {carritoCompra.map(producto => 
                     <li key={producto.id} className="">
