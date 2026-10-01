@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import CarritoPage from './pages/CarritoPage.jsx';
 import ProductoDetalle from './pages/ProductoDetalle.jsx';
+import Checkout from './pages/Checkout.jsx';
 import { useState, useEffect } from 'react';
 import './App.css'
 
@@ -69,6 +70,7 @@ function App() {
         <Route path="/" element={<Home carrito={carrito} agregarCarrito={agregarCarrito} productos={productos} loading={loading} error={error}/>}/>
         <Route path="/carrito" element={<CarritoPage onVaciar={vaciarCarrito} carritoCompra={carrito} onEliminar={eliminarDelCarrito}/>}/>
         <Route path="/producto/:id" element={<ProductoDetalle productos={productos}/>}/>
+        <Route path="/checkout" element={<Checkout carrito={carrito} vaciarCarrito={vaciarCarrito}/>}/>
       </Routes>
     </>
   )
