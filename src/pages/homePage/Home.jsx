@@ -5,10 +5,10 @@ import { useState } from 'react';
 import ProductCard from '../../components/cartaproducto/ProductCard.jsx';
 //import Carrito from '../components/Carrito.jsx';
 import SearchBar from '../../components/navBar/SearchBar.jsx';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 import '../../App.css';
 
-function Home({ carrito, agregarCarrito, productos, loading, error}) {
+function Home({ agregarCarrito, productos, loading, error}) {
   // Estados para compartir entre renderizaciones
   
   const [busqueda, setBusqueda] = useState("");
@@ -19,7 +19,6 @@ function Home({ carrito, agregarCarrito, productos, loading, error}) {
 
   return (
     <>
-      <Link to="/carrito">Ir al carrito {carrito.length}</Link>
       <SearchBar
         busqueda={busqueda}
         setBusqueda={setBusqueda}

@@ -4,7 +4,6 @@ export default function Carrito({carritoCompra, onEliminar, onVaciar}){
     if (carritoCompra.length > 0) {
         return (
             <>
-                <Link to="/checkout">Pagar carrito</Link>
                 <ul>
                     {carritoCompra.map(producto => 
                         <li key={producto.id} className="">
@@ -24,6 +23,7 @@ export default function Carrito({carritoCompra, onEliminar, onVaciar}){
                     }
                 </p>
                 <button onClick={onVaciar} className="px-4 mt-4 bg-red-500 text-white rounded hover:bg-red-700">Vaciar Carrito</button>
+                <Link to="/checkout">Pagar carrito</Link>
             </>
         )
     }

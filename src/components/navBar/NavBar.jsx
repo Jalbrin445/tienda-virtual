@@ -4,7 +4,7 @@ export default function NavBar({cantidadProductos}) {
         <>
             <nav className="flex justify-between items-center px-6 py-4 sticky top-0 z-50 bg-slate-900 text-slate-200 font-semibold">
                 <div>
-                    <img src="/favicon.svg" alt="Icono de la tienda" />
+                    <img src="/favicon.svg" alt="Icono de la tienda" className="w-8 h-8"/>
                 </div>
                 <div className="flex gap-6">
                     <Link to="/" className=" hover:text-blue-400 transition-colors">Home</Link>

@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import obtenerProductos from './services/productService.js';
 import NavBar from './components/navBar/NavBar.jsx';
+import Footer from './components/footer/Footer.jsx';
 import './App.css';
 
 function App() {
@@ -76,6 +77,7 @@ function App() {
         <Route path="/checkout" element={<Checkout carrito={carrito} vaciarCarrito={vaciarCarrito}/>}/>
         
       </Routes>
+      <Footer></Footer>
       <Toaster/>
     </>
   )
