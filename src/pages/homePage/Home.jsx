@@ -26,20 +26,21 @@ function Home({ agregarCarrito, productos, loading, error}) {
       {loading && <p>Cargando...</p>}
       {error && <p>{error}</p>}
       {(productosFiltrados.length === 0 && busqueda !== "") ?  <p>No se encontraron productos</p>: ""}
-      
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center text-black">
-        {!loading && error === null && productosFiltrados.map(producto => 
-          <ProductCard
-            key={producto.id}
-            id={producto.id}
-            nombre={producto.title}
-            imgURL={producto.thumbnail}
-            descripcion={producto.description}
-            precio={producto.price}
-            onAdd={agregarCarrito}
-        />
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center text-black gap-6">
+          {!loading && error === null && productosFiltrados.map(producto => 
+            <ProductCard
+              key={producto.id}
+              id={producto.id}
+              nombre={producto.title}
+              imgURL={producto.thumbnail}
+              descripcion={producto.description}
+              precio={producto.price}
+              onAdd={agregarCarrito}
+            />
           )}
-        
+          
+        </div>
       </div>
     </>
   )

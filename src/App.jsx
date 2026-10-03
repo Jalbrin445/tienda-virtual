@@ -68,8 +68,9 @@ function App() {
 
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <NavBar cantidadProductos={carrito.length}></NavBar>
+      <main className="grow">
       <Routes>
         <Route path="/" element={<Home carrito={carrito} agregarCarrito={agregarCarrito} productos={productos} loading={loading} error={error}/>}/>
         <Route path="/carrito" element={<CarritoPage onVaciar={vaciarCarrito} carritoCompra={carrito} onEliminar={eliminarDelCarrito}/>}/>
@@ -77,9 +78,10 @@ function App() {
         <Route path="/checkout" element={<Checkout carrito={carrito} vaciarCarrito={vaciarCarrito}/>}/>
         
       </Routes>
+      </main>
       <Footer></Footer>
       <Toaster/>
-    </>
+    </div>
   )
 }
 

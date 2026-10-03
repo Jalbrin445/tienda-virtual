@@ -10,14 +10,16 @@ export default function ProductCard(props) {
         });
     }
     return (
-        <div className="border rounded-lg shadow-lg p-4 flex flex-col items-center">
-            <Link to={`/producto/${props.id}`}>
-            <img src={props.imgURL} alt={"Imagen de " + props.nombre} className="w-full h-48 object-cover rounded-md"/>
-            <h1 className="text-xl font-bold mt-2">{props.nombre}</h1>
-            <p className="text-lg mt-2">Descripción: {props.descripcion}</p>
-            <p className="text-lg text-green-600">Precio: {props.precio}</p>
+        <div className="bg-white border rounded-xl border-slate-700 shadow-md hover:shadow-xl p-4 flex flex-col h-full items-center">
+            <Link to={`/producto/${props.id}`} className="flex flex-col grow w-full">
+            <img src={props.imgURL} alt={"Imagen de " + props.nombre} className="w-full h-48 object-cover rounded-lg"/>
+            <div className="grow">
+                <h1 className="text-lg font-bold text-slate-900 group-hover:text-blue-400 transition-colors">{props.nombre}</h1>
+                <p className="text-slate-400 text-sm line-clamp-2">Descripción: {props.descripcion}</p>
+            </div>
+            <p className="text-xl font-extrabold text-green-400">Precio: {props.precio}</p>
             </Link>
-            <button onClick={clickAqui} className="px-4 mt-4 bg-blue-500 text-white rounded hover:bg-blue-700">Agregar al carrito</button>
+            <button onClick={clickAqui} className="w-full py-2.5 px-4 mt-4 bg-blue-600 text-white rounded hover:bg-blue-500 font-medium transition-colors flex items-center justify-center gap-2">Agregar al carrito</button>
         </div>
     )
 }
