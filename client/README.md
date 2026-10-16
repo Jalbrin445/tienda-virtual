@@ -1,16 +1,66 @@
-# React + Vite
+# Tienda Virtual - Frontend (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interfaz de usuario para la tienda virtual diseñada para ofrecer una experiencia rápida, reactiva y moderna. Este cliente web consume la API RESTful del backend para gestionar productos, usuarios y el carrito de compras.
 
-Currently, two official plugins are available:
+## Características Principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Desarrollo Ultrarrápido:** Empaquetado y recarrga en caliente gestionados por **Vite**.
+- **Diseño Responsivo:** Estilos modernos construidos de forma nativa con **Tailwind CSS v4**.
+- **Enrutamiento Fluido:** Navegación SPA (Single Page Application) fluida gracias a **React Router v7**.
+- **Feedback Interactivo:** Sistema de notificaciones amigables para el usuario utilizando **React Hot Toast**.
+- **Calidad de Código:** Configuración estricta de **ESLint** con reglas React y React Hooks para mantener un código limpio.
 
-## React Compiler
+## Estructura del Proyecto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```text
+frontend/
+├── public/             # Assets estáticos (íconos, fuentes)
+├── src/
+│   ├── assets/         # Imágenes de la tienda y recursos multimedia
+│   ├── components/     # Componentes UI reutilizables (Botones, Navbar, Tarjetas de producto)
+│   ├── context/        # Estados globales (Context API para Carrito, Autenticación)
+│   ├── pages/          # Vistas principales (Inicio, Catálogo, Checkout)
+│   ├── services/       # Funciones para consumir la API del backend (fetch/axios)
+│   ├── App.jsx         # Componente raíz y configuración de rutas
+│   └── main.jsx        # Punto de entrada principal de React
+├── vite.config.js      # Configuración de Vite y plugins
+└── package.json        # Dependencias y scripts
+```
 
-## Expanding the ESLint configuration
+## Tecnologías Utilizadas.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Producción:**
+```text
+tailwindcss/vite: 4.3.3
+react: 19.2.8
+react-dom: 19.2.8
+react-hot-toast: 2.6.1
+react-router-dom: 7.18.4
+```
+
+* **Desarrollo:**
+```text
+eslint/js: 10.0.1
+types/react: 19.2.18
+types/react-dom: 19.2.5
+vitejs/plugin-react: 6.1.1
+autoprefixer: 10.5.4
+eslint: 10.9.1
+eslint-plugin-react-hooks: 7.1.1
+eslint-plugin-react-refresh: 0.5.6
+globals: 17.12.0
+postcss: 8.5.28
+tailwindcss: 4.3.3
+vite: 8.2.2
+```
+
+# Instalación y uso:
+
+1. Instalar dependencias:
+```bash
+pnpm install
+```
+2. Iniciar el servidor de desarrollo:
+```bash
+pnpm run dev
+```
