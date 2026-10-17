@@ -1,0 +1,12 @@
+const requestLogger = (req, res, next) => {
+    const fechaHoraActual = new Date().toISOString(); // Obtenemos la fecha y hora actual
+
+    const metodo = req.method;
+    const url = req.url;
+
+    console.log(`Fecha: ${fechaHoraActual} - Método ${metodo} - Ruta ${url}`);
+    next();
+
+}
+
+export { requestLogger};
