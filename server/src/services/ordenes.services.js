@@ -15,3 +15,6 @@ class ordenesService {
         
     }
 }
+
+const instOrdenesService = ordenesService();
+export default instOrdenesService;

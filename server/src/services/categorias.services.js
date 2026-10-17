@@ -6,3 +6,6 @@ class categoriasService {
         
     }
 }
+
+const instCategoriasService = categoriasService();
+export default instCategoriasService;

@@ -6,6 +6,9 @@ class usuariosService {
 
     }
     async listarUsuarios() {
-        
+
     }
 }
+
+const instUsuariosService = usuariosService();
+export default instUsuariosService;
