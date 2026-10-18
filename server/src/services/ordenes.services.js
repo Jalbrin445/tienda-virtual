@@ -1,3 +1,5 @@
+import OrdenModel from '../models/ordenes.model.js';
+
 class ordenesService {
     async crearOrden(datos) {
 
@@ -16,5 +18,5 @@ class ordenesService {
     }
 }
 
-const instOrdenesService = ordenesService();
+const instOrdenesService = new ordenesService();
 export default instOrdenesService;

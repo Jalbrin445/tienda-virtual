@@ -1,3 +1,5 @@
+import ProductosModel from '../models/productos.model.js';
+
 class productosServices {
     async crearProducto(datos) {
 

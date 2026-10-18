@@ -52,8 +52,10 @@ pnpm install
 
 2. Configurar las variables de entorno:
 
-* Duplica el archivo **.env.example** y renómbralo a .env.
-* Completa las credenciales de tu base de datos PostgreSQL y tu clave secreta de JWT.
+* Duplica el archivo **.env.example** y renómbralo a `.env` dentro de `server/`.
+* Completa las credenciales de PostgreSQL. Puedes configurar la conexión con `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD` y `DB_NAME`, o usar `DATABASE_URL`.
+* `PORT` cambia el puerto HTTP del servidor; si no se define, usa `3000`. `DB_PORT` usa `5432` si no se define.
+* No subas `.env` al repositorio: contiene credenciales y ya está excluido por `.gitignore`.
 
 3. Inicia el servidor en modo desarrollo (con recarga automática mediante Nodemon):
 ```bash
@@ -63,4 +65,3 @@ pnpm run dev
 ```bash
 pnpm start
 ```
-

@@ -10,5 +10,5 @@ class usuariosService {
     }
 }
 
-const instUsuariosService = usuariosService();
+const instUsuariosService = new usuariosService();
 export default instUsuariosService;
