@@ -2,6 +2,11 @@ import ProductosModel from '../models/productos.model.js';
 
 class productosServices {
     async crearProducto(datos) {
+        /*
+            Método utilizado en la capa de servicio que
+            implementa la lógica de negocio para crear un
+            producto en la aplicación
+        */
         if (datos.nombre && datos.stock !== undefined && datos.precio_unitario !== undefined&& datos.imagen_url && datos.id_categoria) {
             if (datos.stock < 0) {
                 throw new Error('El stock debe ser igual o mayor a 0');
@@ -17,12 +22,18 @@ class productosServices {
         
     }
     async obtenerTodos() {
+        /*
+            Método utilizado para obtener todos los productos en la capa de servicios
+        */
         
         const resultado = await ProductosModel.obtenerTodosDB();
         
-        return resultado
+        return resultado;
     }
     async obtenerProductoPorId(id) {
+        /*
+            Método utilizado para obtener productos por su id en la capa de servicios
+        */
         const id_producto = parseInt(id);
         if ((id_producto < 0) || isNaN(id_producto)) {
             throw new Error("El id seleccionado es negativo o no se ha enviado un id correcto");
@@ -35,6 +46,9 @@ class productosServices {
 
     }
     async actualizarProducto(id,datos) {
+        /*
+            Método utilizado para actualizar un producto en la capa servicios
+        */
         const productoExiste = await this.obtenerProductoPorId(id);
         if (productoExiste) {
             if (datos.nombre && datos.stock !== undefined && datos.precio_unitario !== undefined&& datos.imagen_url && datos.id_categoria) {
@@ -54,6 +68,10 @@ class productosServices {
 
     }
     async eliminarProducto(id) {
+        /*
+            Método utilizado para eliminar un producto por su id en la capa servicio
+        */
+
         const productoExiste = await this.obtenerProductoPorId(id);
         if (productoExiste) {
             const id_producto = parseInt(id);
