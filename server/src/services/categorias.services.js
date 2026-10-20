@@ -1,4 +1,4 @@
-import CategoriaModel from '../models/categorias.model.js';
+//import CategoriaModel from '../models/categorias.model.js';
 
 
 class categoriasService {
