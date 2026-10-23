@@ -19,6 +19,7 @@ class AuthController {
         }
     }
     async login(req, res) {
+        // Método utilizado para loguearse en la aplicación (capa de controlador)
         try {
             const correoUsuario = req.body.correo;
             const password = req.body.password;
