@@ -1,4 +1,4 @@
-import usuarioModelo from '../models/usuarios.model';
+//import usuarioModelo from '../models/usuarios.model';
 
 class usuariosService {
     /*

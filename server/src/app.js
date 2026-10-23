@@ -19,7 +19,7 @@ app.use('/api/productos', productRoutes);
 app.use('/api/categorias', categoriaRoutes);
 app.use('/api/usuarios', userRoutes);
 app.use('/api/ordenes', ordenRoutes);
-app.use('api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 
 
 export {app};

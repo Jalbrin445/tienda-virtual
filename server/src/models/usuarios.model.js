@@ -16,7 +16,7 @@ class UsuarioModelo {
     }
     async obtenerPorCorreoDB(correo) {
         // Método utilizado para obtener los datos de un usuario utilizando su correo (en la capa modelos)
-        const consulta = 'SELECT * FROM usuario WHERE id_usuario = $1;';
+        const consulta = 'SELECT * FROM usuario WHERE correo = $1;';
         const resultado = await pool.query(consulta, [correo]);
         return resultado.rows[0];
     }
