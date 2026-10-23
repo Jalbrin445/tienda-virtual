@@ -1,10 +1,9 @@
+import usuarioModelo from '../models/usuarios.model';
+
 class usuariosService {
-    async crearUsuario(datos) {
-
-    }
-    async login(datos) {
-
-    }
+    /*
+    Clase que contiene los métodos relacionados con la gestión de usuario como Eliminar un usuario y todo eso
+    */
     async listarUsuarios() {
 
     }
