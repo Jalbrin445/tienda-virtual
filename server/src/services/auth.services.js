@@ -1,5 +1,8 @@
 import bcrypt from 'bcrypt';
 import UsuarioModelo from '../models/usuarios.model.js';
+import jwt from 'jsonwebtoken';
+import '../config/env.js';
+
 class AuthService {
     // Clase que contiene los métodos para registrar y logear un usuario
     async registro(datos) {
@@ -11,7 +14,7 @@ class AuthService {
                 throw new Error('El usuario ya existe');
             }
             
-            const constrasena_hasheada = await bcrypt.hash(datos.password, 10);
+            const constrasena_hasheada = await bcrypt.hash(datos.password, 10); // Con esto increpto la contraseña del usuario
 
             const nuevo_objeto_con_hash = {
                 nombre: datos.nombre,
@@ -35,9 +38,9 @@ class AuthService {
             if (usuario) {
                 const comparacionContrasena = await bcrypt.compare(password, usuario.password_hash);
                 if (comparacionContrasena) {
-                    
+                    const token = jwt.sign({id: usuario.id_usuario, rol: usuario.rol}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRES_IN});
                     delete usuario.password_hash;
-                    return usuario;
+                    return {usuario, token};
                 } else {
                     throw new Error('Credenciales inválidas');
                 }
