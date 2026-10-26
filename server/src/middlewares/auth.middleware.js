@@ -6,7 +6,7 @@ const requestToken = (req, res, next) => {
     // Función middleware para controlar el ingreso de los usuarios utilizando tokens
 
     const encabezadoAutorizacion = req.headers.authorization;
-    if (!encabezadoAutorizacion && !encabezadoAutorizacion.startsWith('Bearer ')) {
+    if (!encabezadoAutorizacion || !encabezadoAutorizacion.startsWith('Bearer ')) {
         return res.status(401).json({
             success:false,
             message:'Acceso denegado. Token no proporcionado o formato inválido'
