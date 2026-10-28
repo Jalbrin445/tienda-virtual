@@ -45,7 +45,7 @@ class AuthService {
                     throw new Error('Credenciales inválidas');
                 }
             } else {
-                throw new Error('Credenciales inválidas');
+                throw new Error('Credenciales no proporcionadas');
             }
             
         } else {
